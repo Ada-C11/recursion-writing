@@ -15,7 +15,11 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-  
+  if s.length == 0
+    return s
+  else
+    return s[-1] + reverse(s[0...-1])
+  end
 end
 
 # Time complexity: ?
