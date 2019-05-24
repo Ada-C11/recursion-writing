@@ -12,8 +12,8 @@ def factorial(n)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) 
+# Space complexity: O(n) - depends on size of input
 def reverse(s)
   if s.length == 0
     return s
@@ -31,7 +31,11 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+  if n == 0
+    return n 
+  else
+    return 2 + bunny(n - 1)
+  end
 end
 
 # Time complexity: ?
