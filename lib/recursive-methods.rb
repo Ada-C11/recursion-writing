@@ -41,31 +41,30 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-  #   if s.length == 1
-  #     return false
-  #   elsif s.length == 0
-  #     return true
-  #   elsif s[0] == ")"
-  #     return false
-  #   elsif s[-1] == "("
-  #     return false
-  #   else
-  #     return nested(s[1..-1])
-  #   end
+  if s.length == 1
+    return false
+  elsif s.length == 0
+    return true
+    # chris!! I realize this would fail if given an initial string like ")(" but i can't figure it out!
+  elsif (s[0] == "(" && s[-1] == ")") || (s[0] == ")" && s[-1] == "(")
+    return nested(s[1..-2])
+  else
+    return false
+  end
 end
 
 # Time complexity: ?
 # Space complexity: ?
-def search(array, value, i = 0)
-  if i >= array.length
+def search(array, value)
+  if array.length == 0
     return false
   end
 
-  if array[i] == value
+  if array[0] == value
     return true
+  else
+    return search(array[1..-1], value)
   end
-
-  return search(array, value, i += 1)
 end
 
 # Time complexity: ?
