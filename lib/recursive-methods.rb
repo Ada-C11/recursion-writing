@@ -44,7 +44,7 @@ def nested(s)
   if s.length == 0
     return true
   else
-    if (s[0] == "(") && (s[-1] == ")")
+    if s[0] == "(" && s[-1] == ")"
       return nested(s[1...-1])
     else
       return false
@@ -55,7 +55,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+  if array.length == 0
+    return false
+  else
+    if array[0] == value
+      return true
+    else
+      return search(array[1..-1], value)
+    end
+  end
 end
 
 # Time complexity: ?
