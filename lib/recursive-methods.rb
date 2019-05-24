@@ -23,8 +23,8 @@ def reverse(s)
   end
 end
 
-# Time complexity: O(n) - where n is the length of the string
-# Space complexity: O(n) - where n is the length of the string
+# Time complexity: O(n) - where n is the length of the string / 2
+# Space complexity: O(n) - where n is the length of the string / 2
 def reverse_inplace(s, i = 0, j = s.length - 1)
   if i >= j
     return s
