@@ -13,7 +13,7 @@ def factorial(n)
 end
 
 # Time complexity: O(n) 
-# Space complexity: O(n) - depends on size of input
+# Space complexity: O(n)
 def reverse(s)
   if s.length == 0
     return s
@@ -22,6 +22,7 @@ def reverse(s)
   end
 end
 
+# I am not sure how to approach this!!
 # Time complexity: ?
 # Space complexity: ?
 def reverse_inplace(s)
@@ -52,8 +53,8 @@ def nested(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, value)
   if array.length == 0
     return false
@@ -66,8 +67,8 @@ def search(array, value)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def is_palindrome(s)
   if s.length <= 1
     return true
@@ -80,8 +81,15 @@ def is_palindrome(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log base 10 n)?
+# Space complexity: O(n)?
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+  if (n % 10) == (m % 10)
+    if n == 0 || m == 0
+      return 0
+    end
+    return 1 + digit_match((n / 10), (m / 10))
+  else
+    return digit_match((n / 10), (m / 10))
+  end
 end
