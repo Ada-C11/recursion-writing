@@ -37,24 +37,28 @@ end
 
 # Time complexity: O(n)
 # Space complexity: O(1)
-# i'm not sure why this solution isn't working for the nominal
-# case - would love feedback
 def nested(s)
   if s == ""
     return true
   elsif s.length == 1
     return false
-  elsif s[0] != s[-1]
+  elsif s[0] == s[-1]
     return false
   else
     return nested(s[1..-2])
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def search(array, value)
-  raise NotImplementedError, "Method not implemented"
+  if array.empty?
+    return false
+  elsif array[0] == value
+    return true
+  else
+    return search(array[1..-1], value)
+  end
 end
 
 # Time complexity: O(n)
@@ -69,8 +73,15 @@ def is_palindrome(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def digit_match(n, m)
-  raise NotImplementedError, "Method not implemented"
+  if m == 0 || n == 0
+    return 0
+  end
+  if m % 10 == n % 10
+    return 1 + digit_match(n / 10, m / 10)
+  else
+    return digit_match(n / 10, m / 10)
+  end
 end
