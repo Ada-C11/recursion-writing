@@ -1,49 +1,76 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+  raise ArgumentError if n < 0
+  return 1 if n == 1 || n == 0
+  return n * factorial(n - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+  return s if s.length <= 1
+  reversed_str = reverse(s[1..-1])
+  reversed_str += s[0]
+  reversed_str
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+  return s if s.length < 1
+  return (s[-1] + reverse_inplace(s[0...-1]))
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+  if n == 0
+    return 0
+  elsif n == 1
+    return 2
+  end
+  return 2 + bunny(n - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
+# i'm not sure why this solution isn't working for the nominal
+# case - would love feedback
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+  if s == ""
+    return true
+  elsif s.length == 1
+    return false
+  elsif s[0] != s[-1]
+    return false
+  else
+    return nested(s[1..-2])
+  end
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+  raise NotImplementedError, "Method not implemented"
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+  if s.length < 2
+    return true
+  elsif s[0] != s[-1]
+    return false
+  else
+    return is_palindrome(s[1..-2])
+  end
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+  raise NotImplementedError, "Method not implemented"
 end
