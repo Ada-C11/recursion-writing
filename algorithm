@@ -1,0 +1,16 @@
+def square_of_two(n)
+  if n == 0
+    return 1
+  end
+  temp = square_of_two(n / 2)
+  if n % 2 == 0
+    return temp * temp
+  elsif n % 2 == 1
+    return 2 * temp * temp
+  end
+end
+
+p square_of_two(2)
+p square_of_two(4)
+p square_of_two(5)
+p square_of_two(0)

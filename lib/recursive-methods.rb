@@ -75,10 +75,13 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def search(array, value)
-  if a[0] == n
+  if array.empty?
+    return false
+  end
+  if array[0] == value
     return true
   else
-    return search(a[i + 1..a.length - 1])
+    return search(array[1..array.length - 1], value)
   end
 end
 
