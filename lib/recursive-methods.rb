@@ -20,8 +20,8 @@ def fib(n)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n isnthe length of the input
+# Space complexity: O(1) because additional space in memory is not being consumed 
 def reverse(s)
   # raise NotImplementedError, "Method not implemented"
   if s.nil? || s.length == 0 || s.length == 1
@@ -31,8 +31,8 @@ def reverse(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n isnthe length of the input
+# Space complexity: O(1) because additional space in memory is not being consumed
 def reverse_inplace(s)
     # raise NotImplementedError, "Method not implemented"
     if s.nil? || s.length == 0 || s.length == 1
@@ -42,14 +42,14 @@ def reverse_inplace(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1) because additional space in memory is not being consumed
 def bunny(n)
-  # # raise NotImplementedError, "Method not implemented"
-  if n.nil? || n == 0
+  if n == 0 || n.nil?
     return 0
+    # if 50 is not equal to 100 (50 * 2)
   else
-    return 2 * bunny(n)
+    return 2 + bunny(n - 1)
   end
 end
 
@@ -65,8 +65,8 @@ def search(array, value)
     raise NotImplementedError, "Method not implemented"
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the size of the input
+# Space complexity: O(1) because additional space in memory is not being consumed
 def is_palindrome(s)
   # raise NotImplementedError, "Method not implemented"
   if s.nil? || s.length == 0 || s.length == 1
