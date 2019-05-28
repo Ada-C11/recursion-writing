@@ -1,27 +1,50 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the value of the number
+# Space complexity: O(n), where n is the value of the number
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+  if n == 0
+    return 1
+  elsif n.nil? || n < 0
+    raise ArgumentError, "This value is not valid."
+  end
+
+  return n * factorial(n-1)
+
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the length of the string
+# Space complexity: O(n), because there will be n layers to the call stack.
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+
+    if s.length == 0
+      return s
+    else 
+      return s[s.length-1] + reverse(s[0, s.length-1])
+    end
+
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the length of the string
+# Space complexity: O(n), because there will be n layers to the call stack.
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+
+  if s.length == 0
+    return s
+  else 
+    return s[s.length-1] + reverse(s[0, s.length-1])
+  end
+
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    if n % 2 == 0
+      return 0
+    else
+      return n + bunny(2-1)
+    end
 end
 
 # Time complexity: ?
