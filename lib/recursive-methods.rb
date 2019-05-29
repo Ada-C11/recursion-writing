@@ -50,12 +50,13 @@ end
 def nested(s)
   if s.length == 0
     return true
-  elsif s.length == 1
+  elsif find_pair(s).nil?
     return false
   end
 
   if find_pair(s)
-    return nested(s.slice!(find_pair(s), 2))
+    s.slice!(find_pair(s), 2)
+    return nested(s)
   end
 end
 
