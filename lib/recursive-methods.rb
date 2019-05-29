@@ -88,12 +88,19 @@ end
 # Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
 # Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
 def is_palindrome(s)
-  if s.length == 0 || s.length == 1
-    return true
-  elsif s[0] != s[-1]
+  return true if s.length == 0
+  left = 0
+  right = s.length - 1
+  return check_letters(left, right, s)
+end
+
+def check_letters(left, right, str)
+  if str[left] != str[right]
     return false
+  elsif left >= right
+    return true
   else
-    is_palindrome(s[1...s.length - 1])
+    check_letters(left + 1, right - 1, str)
   end
 end
 
