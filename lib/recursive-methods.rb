@@ -1,7 +1,7 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(nlogn)
+# Space complexity: O(nlogn)
 def factorial(n)
   if n < 0
     raise ArgumentError, "Error!!"
@@ -14,8 +14,8 @@ def factorial(n)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse(s)
   if s.length == 0
     return s
@@ -24,8 +24,8 @@ def reverse(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_inplace(s)
   if s.length == 0
     return s
@@ -34,8 +34,8 @@ def reverse_inplace(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
   if n == 0
     return 0
@@ -44,9 +44,8 @@ def bunny(n)
   end
 end
 
-# NOT WORKINGGGG!!! Can I get feedback on why this is looping infinitedly (I think?)? Thank you!
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def nested(s)
   if s.length == 0
     return true
