@@ -23,7 +23,7 @@ def reverse(s)
 end
 
 # Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
-# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
+# Space complexity: O(n) where the max depth of the function is n/2,
 def reverse_inplace(s)
   left = 0
   right = s.length - 1
@@ -52,16 +52,22 @@ def bunny(n)
 end
 
 # Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
-# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
+# Space complexity: O(n)^2 where the max depth of the function is n/2
+
 def nested(s)
-  if s.length == 0
+  return true if s.length == 0
+  left = 0
+  right = s.length - 1
+  return check_parens(left, right, s)
+end
+
+def check_parens(left, right, str)
+  if str[left] == str[right] || left == right
+    return false
+  elsif left > right
     return true
-  elsif s.length == 1
-    return false
-  elsif s[0] == s[-1]
-    return false
   else
-    nested(s[1...s.length - 1])
+    check_parens(left + 1, right - 1, str)
   end
 end
 
