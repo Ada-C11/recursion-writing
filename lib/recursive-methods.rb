@@ -12,23 +12,32 @@ def factorial(n)
   end
 end
 
-# Time complexity: O(n) where n recursive calls are made
-# Space complexity: O(n) where n levels are required, each requiring 1 char less of memory
+# Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
+# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
 def reverse(s)
   if s.length == 1 || s.length == 0
     return s
   else
-    return s[-1] + reverse(s[0...-1])
+    s[-1] + reverse_inplace(s[1...-1]) + s[0]
   end
 end
 
-# Time complexity: O(n) where n/2 recursive calls are made
-# Space complexity: O(n) where the max depth of the function is n/2
+# Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
+# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
 def reverse_inplace(s)
-  if s.length == 1 || s.length == 0
-    return s
+  left = 0
+  right = s.length - 1
+  return swap(left, right, s)
+end
+
+def swap(left, right, str)
+  if right <= left
+    return str
   else
-    s[-1] + reverse_inplace(s[1...-1]) + s[0]
+    temp = str[left]
+    str[left] = str[right]
+    str[right] = temp
+    swap(left + 1, right - 1, str)
   end
 end
 
@@ -42,8 +51,8 @@ def bunny(n)
   end
 end
 
-# Time complexity: O(n) where n/2 recursive calls are made
-# Space complexity: O(n) where the max depth of the function is n/2
+# Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
+# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
 def nested(s)
   if s.length == 0
     return true
@@ -56,8 +65,8 @@ def nested(s)
   end
 end
 
-# Time complexity: O(n) because there are 2n-1 calls each time.
-# Space complexity: O(log n) because at most the algorithm goes log2 n levels deep
+# Time complexity: O(n)^2 because there are 2n-1 calls each time and each slices the array
+# Space complexity: O(n log n) because at most the algorithm goes log2 n levels deep, and each layer creates a slice
 def search(array, value)
   return false if array.length == 0
   if array.length == 1
@@ -70,8 +79,8 @@ def search(array, value)
   return false
 end
 
-# Time complexity: O(n) where n/2 recursive calls are made
-# Space complexity: O(n) where the max depth of the function is n/2
+# Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
+# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
 def is_palindrome(s)
   if s.length == 0 || s.length == 1
     return true
