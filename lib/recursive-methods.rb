@@ -82,5 +82,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
-  raise NotImplementedError, "Method not implemented"
+  total = 0
+
+  if n < 10 || m < 10
+    if n % 10 == m % 10
+      total += 1
+    end
+    return total
+  elsif n % 10 == m % 10
+    total += 1
+  end
+  return total + digit_match(n / 10, m / 10)
 end
