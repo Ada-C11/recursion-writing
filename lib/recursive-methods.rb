@@ -24,13 +24,22 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
-# def reverse_inplace(s)
-#   if i >= j
-#     return s
-#   else
-#     return reverse(s)
-#   end
-# end
+def reverse_inplace(s)
+  i = 0
+  j = s.length - 1
+  return reverse_inplace_helper(s, i, j)
+end
+
+def reverse_inplace_helper(s, i, j)
+  if i >= j
+    return s
+  else
+    temp = s[j]
+    s[j] = s[i]
+    s[i] = temp
+    return reverse_inplace_helper(s, i + 1, j - 1)
+  end
+end
 
 # Time complexity: ?
 # Space complexity: ?
