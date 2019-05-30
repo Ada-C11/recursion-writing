@@ -45,21 +45,26 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-  if s === ""
+  if s == ""
     return true
-  elsif s[-1] === s[0]
+  elsif s[-1] == s[0]
     return false
   else
     return nested(s[1..s.length - 2])
   end
-
   return true
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
-  raise NotImplementedError, "Method not implemented"
+  if array[0] == value
+    return true
+  elsif array == []
+    return false
+  else
+    return search(array[1..array.length], value)
+  end
 end
 
 # Time complexity: ?
