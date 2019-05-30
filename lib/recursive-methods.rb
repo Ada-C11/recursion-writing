@@ -24,13 +24,13 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
-def reverse_inplace(s)
-  if i >= j
-    return s
-  else
-    return reverse(s)
-  end
-end
+# def reverse_inplace(s)
+#   if i >= j
+#     return s
+#   else
+#     return reverse(s)
+#   end
+# end
 
 # Time complexity: ?
 # Space complexity: ?
@@ -70,7 +70,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-  raise NotImplementedError, "Method not implemented"
+  if s[0] != s[-1]
+    return false
+  elsif s.length <= 2
+    return true
+  else
+    return is_palindrome(s[1..s.length - 2])
+  end
 end
 
 # Time complexity: ?
