@@ -18,7 +18,7 @@ def reverse(s)
   if s.length == 1 || s.length == 0
     return s
   else
-    s[-1] + reverse_inplace(s[1...-1]) + s[0]
+    s[-1] + reverse(s[1...-1]) + s[0]
   end
 end
 
@@ -86,7 +86,7 @@ def search(array, value)
 end
 
 # Time complexity: O(n)^2 where n/2 recursive calls are made and each calls slice, which is O(n)
-# Space complexity: O(n)^2 where the max depth of the function is n/2, and each level creates a new string slice
+# Space complexity: O(n)^2 where the max depth of the function is n/2
 def is_palindrome(s)
   return true if s.length == 0
   left = 0
