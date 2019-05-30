@@ -28,23 +28,44 @@ end
 
 def reverse_inplace(s)
   #will need a helper method
-  raise NotImplementedError, "Method not implemented"
+  if s == ""
+    return s
+  end
+
+  temp = s[0]
+  s[0] = s[s.length - 1]
+  s[s.length - 1] = temp
+
+  if s.length > 1
+    s[1..-2] = reverse_inplace(s[1..-2])
+  end
+  return s
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-  raise NotImplementedError, "Method not implemented"
+  if n == 0
+    return 0
+  else
+    return 2 + bunny(n - 1)
+  end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the number of bunnies
+# Space complexity: O(n) where n is the number of bunnies
 def nested(s)
-  raise NotImplementedError, "Method not implemented"
+  if s == "" || s == "()"
+    return true
+  elsif s[0] == "(" && s[-1] == ")" && nested(s[1..-2])
+    return true
+  else
+    return false
+  end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the string
+# Space complexity: O(n) where n is the length of the string
 def search(array, value)
   raise NotImplementedError, "Method not implemented"
 end
