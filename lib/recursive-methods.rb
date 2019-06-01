@@ -13,7 +13,7 @@ def factorial(n)
 end
 
 # Time complexity: O(n)
-# Space complexity: O(n^2)
+# Space complexity: O(2^n)
 def reverse(s)
   if s.length <= 1
     return s
@@ -54,7 +54,7 @@ def nested(s)
 end
 
 # Time complexity: O(n)
-# Space complexity: O(^2)
+# Space complexity: O(n^2)
 def search(array, value)
   if array.length == 0
     return false
@@ -68,7 +68,7 @@ end
 
 
 # Time complexity: O(n)
-# Space complexity: O(n^2)
+# Space complexity: O(2^n)
 def is_palindrome(s)
   if s == ""
     return true
@@ -79,8 +79,8 @@ def is_palindrome(s)
   return is_palindrome(s[1...-1])
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def digit_match(n, m)
   if n == 0 || m == 0
     return 0
